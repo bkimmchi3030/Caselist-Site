@@ -1,6 +1,6 @@
 # Privacy Policy for Caselist Mailer
 
-**Last updated: September 18, 2026**
+**Last updated: September 19, 2026**
 
 Caselist Mailer (listed as "Caselist" on the Chrome Web Store) is a Chrome extension that automates disclosure on openCaselist, the site where competitive debaters publish the rounds they have debated and the documents they read in them.
 
@@ -21,11 +21,13 @@ The only Google scope requested is `https://www.googleapis.com/auth/gmail.readon
 
 The extension only reads mail. It cannot send, delete, or modify messages, and the read-only scope makes that technically enforced rather than a promise. Mail is searched for the specific messages described above; the extension does not index, copy, or retain the user's mailbox.
 
+When the user adds a partner's address in setup, the extension also checks whether any mail from that address exists in the mailbox, to catch typing mistakes. This is a count only; no message content is read for it.
+
 On a round's email chain, the extension reads the From, To, and Cc headers of the messages on it to identify who was on the chain — for example, to suggest the judge's name. On those chains, it does not read the body of any message other than the user's own and their partner's. The only other message bodies it reads are Tabroom pairing emails, as described above.
 
 **openCaselist.** The extension reads caselist data — schools, teams, rounds, and cites, all of which are published publicly by debaters on openCaselist — and writes new rounds and documents when the user chooses to publish. It also asks openCaselist for the user's current Tabroom rounds, where openCaselist makes them available, to fill in round details.
 
-**Local storage.** The extension uses `chrome.storage.local` to hold exactly the following: the caselist, school, and team code chosen in setup; the partner email addresses the user entered; the mail look-back window; which half of the extension (mailer or searcher) was last open; the signed-in Gmail address, so it can tell the user apart from other people on a mail chain; and a cached index of the schools and teams on the chosen caselist, so searching is fast and works offline. All of this stays in the user's browser.
+**Local storage.** The extension uses `chrome.storage.local` to hold exactly the following: the caselist, school, and team code chosen in setup; the partner email addresses the user entered; the mail look-back window; which half of the extension (mailer or searcher) was last open; the signed-in Gmail address, so it can tell the user apart from other people on a mail chain; a cached index of the schools and teams on the chosen caselist, so searching is fast and works offline; and a record of the rounds the user has published (the Gmail message id and attachment id of the file, and the caselist, school and team it went to, with no mail content, limited to the 200 most recent), so the panel can mark a document as published and never post it twice. All of this stays in the user's browser.
 
 ## What the extension does not do
 
