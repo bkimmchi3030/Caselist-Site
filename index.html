@@ -315,8 +315,8 @@ footer a { color: var(--muted); }
       </li>
       <li>
         <strong>Sign in with Google</strong>
-        <p>You'll see a screen that says <span class="quote">Google hasn't verified this app</span>. That's because the extension is small and unlisted, not because anything is wrong. Click <span class="quote">Advanced</span>, then <span class="quote">Go to Caselist</span>.</p>
-        <p>It asks for read-only access to Gmail. It only reads messages from you and your partner, and only to find speech docs and pairing emails.</p>
+        <p>You'll see a screen that says <span class="quote">Google hasn't verified this app</span>. That's because Google is still reviewing the extension's Gmail access; the screen goes away once that review is finished. Until then, click <span class="quote">Advanced</span>, then <span class="quote">Go to Caselist Mailer</span>.</p>
+        <p>It asks for one permission: read-only access to Gmail (gmail.readonly). It uses it only to find the speech docs you and your partner emailed and the Tabroom pairing email for the round. It can't send, change or delete mail.</p>
       </li>
       <li>
         <strong>Be signed in to openCaselist</strong>
@@ -334,17 +334,17 @@ footer a { color: var(--muted); }
   <div class="wrap">
     <h2>What it can see</h2>
     <ul>
-      <li><strong>Your Gmail, read-only.</strong> Only messages from you and your partner are opened. Messages from other people on a chain are never read; the extension looks at who was on the thread, nothing more.</li>
+      <li><strong>Your Gmail, read-only.</strong> It opens two kinds of message: speech-doc emails sent by you or your partner, and the Tabroom pairing emails that name your round. Messages from other people on a chain are never read; the extension looks at who was on the thread, nothing more.</li>
       <li><strong>openCaselist through your own tab.</strong> Every request goes out from the page you're already signed in to, so the extension never holds or stores a login token.</li>
       <li><strong>Nothing leaves your browser.</strong> There's no server. Your setup, your partner's address and the team index it builds all live in the extension's local storage on your machine.</li>
     </ul>
-    <p class="measure"><a href="PRIVACY.html">Read the full privacy policy</a>.</p>
+    <p class="measure"><a href="https://bkimmchi3030.github.io/Caselist-Site/PRIVACY.html">Read the full privacy policy</a>.</p>
   </div>
 </section>
 
 <footer class="wrap">
   <span>Caselist Mailer · Made by a policy debater at Pace Academy.</span>
-  <span><a href="https://chromewebstore.google.com/detail/oenbgcibpofemmpknaibfpabekgfjpcn">Chrome Web Store</a> · <a href="https://opencaselist.com">openCaselist</a></span>
+  <span><a href="https://chromewebstore.google.com/detail/oenbgcibpofemmpknaibfpabekgfjpcn">Chrome Web Store</a> · <a href="https://opencaselist.com">openCaselist</a> · <a href="https://bkimmchi3030.github.io/Caselist-Site/PRIVACY.html">Privacy policy</a></span>
 </footer>
 
 <script>
