@@ -1,6 +1,6 @@
 # Privacy Policy for Caselist Mailer
 
-**Last updated: September 19, 2026**
+**Last updated: September 20, 2026**
 
 Caselist Mailer (listed as "Caselist" on the Chrome Web Store) is a Chrome extension that automates disclosure on openCaselist, the site where competitive debaters publish the rounds they have debated and the documents they read in them.
 
@@ -10,20 +10,45 @@ This policy explains what the extension accesses, why, and where that informatio
 
 Caselist has no backend server. There is no account to create, no analytics, and no telemetry. Everything the extension reads is processed inside the user's own browser. The only time information leaves the user's device is when the user deliberately publishes a round or a document to openCaselist — the destination they chose, using their own openCaselist account.
 
-## What the extension accesses
+## Google user data the extension accesses
 
-**Gmail (read-only).** With the user's explicit Google sign-in consent, Caselist requests the `gmail.readonly` scope and reads the user's own mailbox to locate two things:
+With the user's explicit consent on Google's sign-in screen, Caselist requests one Google scope, `https://www.googleapis.com/auth/gmail.readonly`, and no other. Through it the extension accesses the following, from the user's own Gmail account only:
 
-- Pairing emails from Tabroom.com, to extract the tournament, round, side, and opponent for a debate round.
-- Speech documents sent on round email chains, so they can be published without being downloaded and re-uploaded by hand.
+- **The account's email address**, from the Gmail profile.
+- **Search results** for three searches: round email chains sent by the user or by a partner the user named, within the look-back window the user set; Tabroom.com pairing emails, including pairings the user or their partner forwarded; and whether any mail exists from a partner address the user typed, which is a yes-or-no check that opens no message.
+- **The email chains the first search finds.** Gmail returns each chain as a whole thread. From the chain the extension uses the subject line, the names and sizes of attached files, and, for every message on it, the From, To and Cc headers, the date, and Gmail's Sent label. It uses body text (or Gmail's short snippet when a message has no plain-text part) only from messages sent by the user or their partner. Body text from anyone else on the chain is discarded without being parsed, displayed or stored.
+- **The body text of Tabroom pairing emails.**
+- **One attachment at a time:** the file the user selects, downloaded when they press Publish.
 
-The only Google scope requested is `https://www.googleapis.com/auth/gmail.readonly`; no other Google data is accessed.
+The extension cannot send, delete, or modify mail; the read-only scope enforces that technically. It does not index, copy, or retain the mailbox.
 
-The extension only reads mail. It cannot send, delete, or modify messages, and the read-only scope makes that technically enforced rather than a promise. Mail is searched for the specific messages described above; the extension does not index, copy, or retain the user's mailbox.
+## How the extension uses Google user data
 
-When the user adds a partner's address in setup, the extension also checks whether any mail from that address exists in the mailbox, to catch typing mistakes. This is a count only; no message content is read for it.
+Google user data is used only to provide the features the user sees in the side panel:
 
-On a round's email chain, the extension reads the From, To, and Cc headers of the messages on it to identify who was on the chain — for example, to suggest the judge's name. On those chains, it does not read the body of any message other than the user's own and their partner's. The only other message bodies it reads are Tabroom pairing emails, as described above.
+- The email address tells the user's own messages apart from other people's on a chain, for example so the user is never suggested as the judge.
+- Search results and chain contents build the list of rounds and documents shown in the panel, and pre-fill the tournament, round, side, opponent and judge in the publish form. Every pre-filled value is visible and editable before anything is published.
+- Pairing emails fill in the same round details, and power Autosearch, which looks up the user's next opponent on openCaselist.
+- The partner-address check tells a mistyped address apart from a quiet inbox during setup.
+- The selected attachment is uploaded to openCaselist when the user presses Publish.
+
+Google user data is not used for advertising, is not sold, is not used to build profiles, and is not used to develop, improve or train AI or machine-learning models.
+
+## Sharing and transfer of Google user data
+
+Google user data goes to exactly one place, and only when the user presses Publish: openCaselist (`https://api.opencaselist.com`), through the user's own signed-in session. What is sent is the file the user chose, its file name, and the round details shown in the form. Nothing is sent to the developer or to any other party, because there is no server to receive it.
+
+## How Google user data is protected
+
+- **It stays on the device.** Processing happens inside the user's browser. There is no backend, so neither the developer nor any other person can access a user's mail.
+- **Encrypted in transit.** The extension makes network requests only to the Gmail API and to openCaselist, always over HTTPS (TLS).
+- **The access token is held by Chrome, not by the extension.** The extension asks Chrome for the token at each request, never writes it to storage, and sends it only to the Gmail API. A token Gmail rejects is discarded immediately.
+- **Mail content is never written to disk.** Message text, subjects, sender lists, file names and attachments exist only in memory while the panel is open. A downloaded attachment is held only between the download and the upload, then deleted.
+- **What is stored is minimal and private.** The only Gmail-derived values kept are the signed-in address and, for up to 200 published documents, the Gmail message id and attachment id. They sit in `chrome.storage.local`, which only this extension can read.
+- **Read-only by design.** The scope cannot send, modify or delete anything in the account.
+- **Revocable at any time** at myaccount.google.com/permissions.
+
+## Other things the extension accesses
 
 **openCaselist.** The extension reads caselist data — schools, teams, rounds, and cites, all of which are published publicly by debaters on openCaselist — and writes new rounds and documents when the user chooses to publish. It also asks openCaselist for the user's current Tabroom rounds, where openCaselist makes them available, to fill in round details.
 
@@ -37,6 +62,7 @@ On a round's email chain, the extension reads the From, To, and Cc headers of th
 - It does not allow humans to read the user's data. The developer has no access to it, because there is no server that receives it.
 - It does not read browsing history, and does not read pages other than openCaselist.
 - It does not use the data for any purpose unrelated to the extension's single purpose described above.
+- It does not use information to develop, improve or train AI or machine-learning models.
 
 ## Credentials
 
@@ -52,7 +78,7 @@ Caselist's use and transfer of information received from Google APIs adheres to 
 
 ## Data retention and deletion
 
-The extension retains nothing on any server, because there is no server. Locally cached data can be cleared at any time by using the extension's "Rebuild the index" option or by removing the extension from Chrome, which deletes its local storage.
+The extension retains nothing on any server, because there is no server. Removing the extension from Chrome deletes all of its local storage. The extension's "Rebuild the index" option replaces the cached openCaselist index.
 
 Access to Gmail can be revoked at any time at [myaccount.google.com/permissions](https://myaccount.google.com/permissions), independently of whether the extension is installed.
 
