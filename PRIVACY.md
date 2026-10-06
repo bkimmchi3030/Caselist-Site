@@ -2,6 +2,8 @@
 
 **Last updated: September 20, 2026**
 
+Short version: [What Caselist can and can't access](ACCESS.html)
+
 Caselist Mailer (listed as "Caselist" on the Chrome Web Store) is a Chrome extension that automates disclosure on openCaselist, the site where competitive debaters publish the rounds they have debated and the documents they read in them.
 
 This policy explains what the extension accesses, why, and where that information goes.
