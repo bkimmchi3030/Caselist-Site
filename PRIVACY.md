@@ -1,6 +1,6 @@
 # Privacy Policy for Caselist Mailer
 
-**Last updated: September 20, 2026**
+**Last updated: October 6, 2026**
 
 Short version: [What Caselist can and can't access](ACCESS.html)
 
@@ -10,7 +10,7 @@ This policy explains what the extension accesses, why, and where that informatio
 
 ## Summary
 
-Caselist has no backend server. There is no account to create, no analytics, and no telemetry. Everything the extension reads is processed inside the user's own browser. The only time information leaves the user's device is when the user deliberately publishes a round or a document to openCaselist — the destination they chose, using their own openCaselist account.
+Caselist has no backend server. There is no account to create, no analytics, and no telemetry. Everything the extension reads is processed inside the user's own browser. Information from the user's mail leaves the device in only two cases: when the user deliberately publishes a round or a document to openCaselist, and when the user asks Autosearch to look up their next opponent there. In both cases it goes to openCaselist, the destination the user chose, using their own openCaselist account.
 
 ## Google user data the extension accesses
 
@@ -38,7 +38,7 @@ Google user data is not used for advertising, is not sold, is not used to build 
 
 ## Sharing and transfer of Google user data
 
-Google user data goes to exactly one place, and only when the user presses Publish: openCaselist (`https://api.opencaselist.com`), through the user's own signed-in session. What is sent is the file the user chose, its file name, and the round details shown in the form. Nothing is sent to the developer or to any other party, because there is no server to receive it.
+Google user data goes to exactly one place: openCaselist (`https://api.opencaselist.com`), through the user's own signed-in session, and only in two cases. When the user presses Publish, what is sent is the file the user chose, its file name, and the round details shown in the form; these can include a judge's name taken from the email chain if the user keeps the suggestion. When the user presses Autosearch, the extension reads the opponent's team name from a Tabroom pairing email and requests that team's page from openCaselist; no message text is sent. Nothing is sent to the developer or to any other party, because there is no server to receive it.
 
 ## How Google user data is protected
 
@@ -52,7 +52,7 @@ Google user data goes to exactly one place, and only when the user presses Publi
 
 ## Other things the extension accesses
 
-**openCaselist.** The extension reads caselist data — schools, teams, rounds, and cites, all of which are published publicly by debaters on openCaselist — and writes new rounds and documents when the user chooses to publish. It also asks openCaselist for the user's current Tabroom rounds, where openCaselist makes them available, to fill in round details.
+**openCaselist.** The extension reads caselist data — schools, teams, rounds, cites, and team notes, all of which are published publicly by debaters on openCaselist — and writes new rounds and documents when the user chooses to publish. Team notes are fetched only when the user asks to see them and are never stored. It also asks openCaselist for the user's current Tabroom rounds, where openCaselist makes them available, to fill in round details.
 
 **Local storage.** The extension uses `chrome.storage.local` to hold the following, and nothing else: the caselist, school, and team code chosen in setup; the partner email addresses the user entered; the mail look-back window; the user's display and behaviour preferences, such as the Autoselect choice and the tournament numbering style; which half of the extension (mailer or searcher) was last open; the signed-in Gmail address, so it can tell the user apart from other people on a mail chain; a cached index of the schools and teams on the chosen caselist, so searching is fast and works offline; and a record of the rounds the user has published (the Gmail message id and attachment id of the file, and the caselist, school and team it went to, with no mail content, limited to the 200 most recent), so the panel can mark a document as published and never post it twice. All of this stays in the user's browser.
 
@@ -80,7 +80,7 @@ Caselist's use and transfer of information received from Google APIs adheres to 
 
 ## Data retention and deletion
 
-The extension retains nothing on any server, because there is no server. Removing the extension from Chrome deletes all of its local storage. The extension's "Rebuild the index" option replaces the cached openCaselist index.
+The extension retains nothing on any server, because there is no server. Removing the extension from Chrome deletes all of its local storage. The extension's "Scan caselist" button replaces the cached openCaselist index.
 
 Access to Gmail can be revoked at any time at [myaccount.google.com/permissions](https://myaccount.google.com/permissions), independently of whether the extension is installed.
 
