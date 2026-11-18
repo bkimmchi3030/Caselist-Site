@@ -232,7 +232,7 @@ footer a { color: var(--muted); }
   <div class="wrap">
     <h2>What it can see</h2>
     <ul>
-      <li><strong>Your Gmail, read-only.</strong> It opens three kinds of message: round emails sent by you or your partner, the Tabroom pairing emails that name your round, and the file-share emails Tabroom sends for a round's share link. Messages from anyone else on a chain are never read; the extension looks at who was on the thread, nothing more.</li>
+      <li><strong>Your Gmail, read-only.</strong> It opens three kinds of message: round emails sent by you or your partner, the Tabroom pairing emails that name your round, and the file-share emails Tabroom sends for a round's share link. Messages from anyone else on a chain are never opened: of those, the extension looks only at who sent and received them. Gmail delivers the whole thread at once, so their messages pass through memory unread for a few minutes, and nothing of them but names and addresses reaches the panel.</li>
       <li><strong>openCaselist, signed in as you.</strong> Caselist talks to openCaselist directly, using the sign-in your browser already has. No tab has to be open, and it never sees or stores a password or a token.</li>
       <li><strong>The only part of your mail that leaves your browser is the round you choose to publish.</strong> There's no server. Feedback goes to the developer only if you type it and press Send. Your setup, your partner's address and the team index it builds all live in the extension's local storage on your machine.</li>
     </ul>
