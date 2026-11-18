@@ -1,6 +1,6 @@
 # Caselist Mailer Privacy Policy
 
-**Last updated: November 9, 2026**
+**Last updated: November 17, 2026**
 
 Short version: [What Caselist can and can't access](ACCESS.html)
 
@@ -35,11 +35,13 @@ Your mail is never sent to the developer or to any other party.
 
 In your browser's extension storage (never on a server):
 
-- your settings: caselist, school, team, partner addresses, how far back to look, tournament numbering, whether you use Caselist without Gmail, and which sections are open;
+- your settings: caselist, school, team, partner addresses, how far back to look, tournament numbering, whether you use Caselist without Gmail, and which sections are open (the open sections are also kept in the panel page's own storage, so it can draw them before the extension storage answers);
 - your Gmail address;
 - a record of up to 200 rounds you've published (Gmail message and attachment IDs, the team, and the date);
 - the IDs of up to 2,000 emails already checked and found not to be round emails, so they aren't read again;
-- a list of openCaselist schools and teams, with debaters' names as openCaselist lists them.
+- a list of openCaselist schools and teams, with debaters' names as openCaselist lists them;
+- how long the last few panel loads took (three numbers), used only to pace the loading bar;
+- which kind of file you last published for each side, such as "1NC" or "none", used to preselect the file next time; no file names and no round details.
 
 The contents of your emails are never saved. While the panel is open, recently read emails are kept in memory for up to five minutes, then discarded.
 
